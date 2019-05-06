@@ -19,9 +19,26 @@ package com.CMSC447.nurseroster.domain;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
-@PlanningEntity
 
+@PlanningEntity
 public class ShiftAssignment{
+
+    @PlanningVariable(valueRangeProviderRefs = {"employeeRange"})
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Shift getShift() {
+        return shift;
+    }
+
+    public void setShift(Shift shift) {
+        this.shift = shift;
+    }
 
     Employee employee;
 

@@ -19,9 +19,11 @@ package com.CMSC447.nurseroster.domain;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 
+import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 import java.util.List;
@@ -29,11 +31,9 @@ import java.util.List;
 @PlanningSolution
 public class NurseRoster {
 
-    private String code;
-
+    @ProblemFactCollectionProperty
     private List<ScheduleConstraint> scheduleConstraints;
 
-    @PlanningScore
     private HardSoftScore score;
 
     private List<ShiftAssignment> shiftAssignments;
@@ -41,7 +41,7 @@ public class NurseRoster {
 
 
 
-
+    @PlanningScore
     public HardSoftScore getScore() {
         return score;
     }
@@ -50,6 +50,7 @@ public class NurseRoster {
         this.score = score;
     }
 
+    @PlanningEntityCollectionProperty
     public List<ShiftAssignment> getShiftAssignments() {
         return shiftAssignments;
     }
