@@ -42,6 +42,8 @@ public class ShiftAssignment{
         this.shift = shift;
     }
 
+    public
+
     Employee employee;
 
     Shift shift;

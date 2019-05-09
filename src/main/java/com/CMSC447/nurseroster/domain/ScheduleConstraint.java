@@ -4,7 +4,7 @@ import org.drools.core.spi.Constraint;
 
 import java.util.List;
 
-public interface ScheduleConstraint extends Constraint {
+public interface ScheduleConstraint {
     int priority = 0;
     boolean isHardConstraint = false;
 

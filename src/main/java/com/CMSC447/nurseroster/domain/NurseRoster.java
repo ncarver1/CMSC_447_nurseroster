@@ -25,7 +25,9 @@ import org.optaplanner.core.api.domain.solution.PlanningSolution;
 
 import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.javatuples.Pair;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @PlanningSolution
@@ -43,6 +45,8 @@ public class NurseRoster {
 
     @PlanningScore
     public HardSoftScore getScore() {
+        int hardScore = 0;
+        int softScore = 0;
 
 
 
@@ -51,8 +55,14 @@ public class NurseRoster {
         return score;
     }
 
-    public void setScore(HardSoftScore score) {
-        this.score = score;
+    private List<Pair<Employee,List<Shift>>> reformatAssignments(){
+        List<Employee> employees = new LinkedList<Employee>();
+        for(ShiftAssignment assignment: shiftAssignments){
+            if(!employees.contains(assignment.employee)){
+                employees.add(assignment.employee);
+                
+            }
+        }
     }
 
     @PlanningEntityCollectionProperty
