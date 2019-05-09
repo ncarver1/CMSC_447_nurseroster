@@ -22,10 +22,24 @@ import java.util.Map;
 public class Employee  {
 
 
-    //TODO constructor
+    //constructor
+	Employee(int id, List<Role> Roles, String Name, String eAddr, List<DatePreference> Days, List<Shift> template){
+		this.EmployeeID = id;
+		this.roles = Roles;
+		this.name = Name;
+		this.email = eAddr;
+		this.preferredDays = Days;
+		this.EmployeeShiftTemplate = template;
+	}
 
     List<PersonalConstraint> constraints;
     List<Role> roles;
+    int EmployeeID;
+    String name;
+    String email; 
+    List<DatePreference> preferredDays;
+    List<Shift> EmployeeShiftTemplate; 
+    
 
     public int score(List<Shift> shifts){
         int score = 0;
