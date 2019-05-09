@@ -20,7 +20,10 @@ public class ShiftPattern {
     List<Pair<Float,Float>> lengthRanges;
     List<Location> allowedLocations;
 
-
+    // constructor
+    ShiftPattern(){
+    	
+    }
 
     /*
     * Checks to see if shift follows this Pattern

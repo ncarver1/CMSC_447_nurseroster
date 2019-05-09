@@ -23,7 +23,7 @@ public class Employee  {
 
 
     //constructor
-	Employee(int id, List<Role> Roles, String Name, String eAddr, List<DatePreference> Days, List<Shift> template){
+	Employee(int id, List<Role> Roles, String Name, List<String> eAddr, List<DatePreference> Days, List<ShiftPattern> template){
 		this.EmployeeID = id;
 		this.roles = Roles;
 		this.name = Name;
@@ -36,9 +36,9 @@ public class Employee  {
     List<Role> roles;
     int EmployeeID;
     String name;
-    String email; 
+    List<String> email; 
     List<DatePreference> preferredDays;
-    List<Shift> EmployeeShiftTemplate; 
+    List<ShiftPattern> EmployeeShiftTemplate; 
     
 
     public int score(List<Shift> shifts){
