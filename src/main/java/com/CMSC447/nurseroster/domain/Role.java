@@ -5,5 +5,7 @@ import org.drools.core.spi.Constraint;
 import java.util.List;
 
 public class Role {
-    List<Constraint> constraints;
+    List<PersonalConstraint> constraints;
+
+    //TODO constructor
 }

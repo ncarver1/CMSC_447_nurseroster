@@ -4,7 +4,7 @@ import org.drools.core.spi.Constraint;
 
 import java.util.List;
 
-public interface PersonalConstraint extends Constraint {
+public interface PersonalConstraint{
     int priority = 0;
     boolean isHardConstraint = false;
 

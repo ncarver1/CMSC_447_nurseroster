@@ -43,6 +43,11 @@ public class NurseRoster {
 
     @PlanningScore
     public HardSoftScore getScore() {
+
+
+
+
+
         return score;
     }
 

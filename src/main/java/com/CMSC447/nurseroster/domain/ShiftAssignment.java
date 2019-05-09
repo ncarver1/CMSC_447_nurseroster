@@ -23,6 +23,8 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 @PlanningEntity
 public class ShiftAssignment{
 
+    //TODO constructor
+
     @PlanningVariable(valueRangeProviderRefs = {"employeeRange"})
     public Employee getEmployee() {
         return employee;
