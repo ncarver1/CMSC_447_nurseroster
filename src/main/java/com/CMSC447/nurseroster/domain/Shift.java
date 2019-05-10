@@ -24,16 +24,23 @@ import java.util.List;
 
 public class Shift {
 
-    LocalDateTime startTime;
-    LocalDateTime endTime;
-    List<String> shiftTypes;
+    //LocalDateTime startTime;
+    // LocalDateTime endTime;
+	// changed to String because of JSON spec doc
+    String startTime;
+    String endTime;
+	List<String> shiftTypes;
     Location location;
+    Boolean mandatory;
+    // restrictions
+    List<Integer> RoleID;
+     
 
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
@@ -45,10 +52,12 @@ public class Shift {
         return location;
     }
 
-    public Shift(LocalDateTime startTime, LocalDateTime endTime, List<String> shiftTypes, Location location) {
+    public Shift(String startTime, String endTime, List<String> shiftTypes, Location location, Boolean mandatory, List<Integer> RoleID) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.shiftTypes = shiftTypes;
         this.location = location;
+        this.mandatory = mandatory; 
+        this.RoleID = RoleID;
     }
 }

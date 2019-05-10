@@ -9,7 +9,18 @@ import java.io.ObjectOutput;
 import java.util.List;
 
 public class HoursRequired implements PersonalConstraint{
-    @Override
+   
+	int id; 
+	int amount; 
+	String per; 
+	
+	HoursRequired(int id, int amount, String per){
+		this.id = id;
+		this.amount = amount;
+		this.per = per;
+	}
+	
+	@Override
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;
     }
