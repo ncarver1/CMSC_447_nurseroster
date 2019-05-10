@@ -16,6 +16,8 @@
 
 package com.CMSC447.nurseroster.domain;
 
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+
 import java.util.List;
 import java.util.Map;
 
@@ -27,19 +29,21 @@ public class Employee  {
     List<PersonalConstraint> constraints;
     List<Role> roles;
 
-    public int score(List<Shift> shifts){
-        int score = 0;
+    public HardSoftScore score(List<Shift> shifts){
+        int softScore = 0;
+        int hardScore = 0;
         for(PersonalConstraint constraint : constraints){
-            score += constraint.score(shifts, this);
+            softScore += constraint.score(shifts, this);
         }
         for(Role role : roles){
             for(PersonalConstraint constraint : role.constraints) {
                 if (!constraints.contains(constraint)) {
-                    score += constraint.score(shifts, this);
+                    hardScore += constraint.score(shifts, this);
                 }
             }
         }
-        return score;
+
+        return HardSoftScore.of(hardScore,softScore);
     }
 
 

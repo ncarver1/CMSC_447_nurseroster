@@ -45,24 +45,38 @@ public class NurseRoster {
 
     @PlanningScore
     public HardSoftScore getScore() {
-        int hardScore = 0;
-        int softScore = 0;
+        HardSoftScore score = HardSoftScore.ZERO;
 
+        List<Pair<Employee,List<Shift>>> shiftsByEmployees = reformatAssignments();
+        for( Pair<Employee, List<Shift>> employeeShifts : shiftsByEmployees){
+            score.add(employeeShifts.getValue0().score(employeeShifts.getValue1()));
+        }
 
-
-
+        for(ScheduleConstraint scheduleConstraint :scheduleConstraints ) {
+            score.add(HardSoftScore.ofHard(scheduleConstraint.score(shiftAssignments)));
+        }
 
         return score;
     }
 
     private List<Pair<Employee,List<Shift>>> reformatAssignments(){
+        List<Pair<Employee,List<Shift>>> reformat = new LinkedList<Pair<Employee,List<Shift>>>();
         List<Employee> employees = new LinkedList<Employee>();
         for(ShiftAssignment assignment: shiftAssignments){
             if(!employees.contains(assignment.employee)){
                 employees.add(assignment.employee);
-                
+                List<Shift> shifts = new LinkedList<Shift>();
+                shifts.add(assignment.shift);
+                reformat.add(new Pair<>(assignment.employee, shifts));
+            }else{
+                for(Pair<Employee,List<Shift>> item : reformat){
+                    if(item.getValue(0).equals(assignment.employee)){
+                        ((List)item.getValue(1)).add(assignment.shift);
+                    }
+                }
             }
         }
+        return reformat;
     }
 
     @PlanningEntityCollectionProperty

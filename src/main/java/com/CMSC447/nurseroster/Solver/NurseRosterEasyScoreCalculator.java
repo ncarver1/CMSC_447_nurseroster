@@ -18,16 +18,15 @@ package com.CMSC447.nurseroster.Solver;
 
 
 import com.CMSC447.nurseroster.domain.NurseRoster;
-import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
 
 
 public class NurseRosterEasyScoreCalculator implements EasyScoreCalculator<NurseRoster> {
 
     @Override
-    public HardMediumSoftLongScore calculateScore(NurseRoster solution) {
-
-        return null;
+    public HardSoftScore calculateScore(NurseRoster solution) {
+        return solution.getScore();
     }
 
 
