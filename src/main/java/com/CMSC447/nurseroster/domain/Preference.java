@@ -4,6 +4,5 @@ import org.drools.compiler.lang.Location;
 
 public interface Preference extends PersonalConstraint {
     boolean isPositivePreference = false;
-    Location location = null;
-
+    String location = null;
 }

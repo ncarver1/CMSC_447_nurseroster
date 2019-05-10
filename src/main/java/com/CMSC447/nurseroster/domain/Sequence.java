@@ -10,4 +10,12 @@ public class Sequence {
     List<Pair<Duration, Duration>> startTimeDifferenceRanges;
     List<Pair<Duration, Duration>> endTimeDifferenceRanges;
     List<Pair<Duration, Duration>> timeGapSizeRanges;
+    
+    Sequence(List<ShiftPattern> patterns, List<Pair<Duration, Duration>> startTimeDiff,
+    		List<Pair<Duration, Duration>> endTimeDiff, List<Pair<Duration, Duration>> timeGap){
+    	this.shiftPatterns = patterns;
+    	this.startTimeDifferenceRanges = startTimeDiff;
+    	this.endTimeDifferenceRanges = endTimeDiff;
+    	this.timeGapSizeRanges = timeGap;
+    }
 }

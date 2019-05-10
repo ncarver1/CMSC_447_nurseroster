@@ -12,17 +12,15 @@ import java.util.List;
 
 public class DatePreference implements Preference {
 
-    //LocalDate startDate;
-    //LocalDate endDate;
+    LocalDate startDate;
+    LocalDate endDate;
     Boolean isPosPref; 
-    String StartDate;
-    String EndDate;
-    String location; 
+    String location;
     
-    DatePreference(Boolean pref, String start, String end, String loc){
+    DatePreference(Boolean pref, LocalDate start, LocalDate end, String loc){
     	this.isPosPref = pref;
-    	this.StartDate = start;
-    	this.EndDate = end;
+    	this.startDate = start;
+    	this.endDate = end;
     	this.location = loc; 
     }
     

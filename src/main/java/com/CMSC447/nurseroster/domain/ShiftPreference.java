@@ -14,6 +14,11 @@ public class ShiftPreference implements Preference {
     LocalDateTime startTime;
     LocalDateTime endTime;
 
+    ShiftPreference(LocalDateTime start, LocalDateTime end){
+    	this.startTime = start;
+    	this.endTime = end;
+    }
+    
     @Override
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;

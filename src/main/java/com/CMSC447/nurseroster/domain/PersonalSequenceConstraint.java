@@ -17,6 +17,14 @@ public class PersonalSequenceConstraint implements PersonalConstraint{
     Period repeatPeriod;
     LocalDate repeatStart;
 
+    PersonalSequenceConstraint(PersonalSequence shiftSeq, int min, int max, Period period, LocalDate repeat){
+    	this.shiftSequence = shiftSeq;
+    	this.minMatches = min;
+    	this.maxMatches = max;
+    	this.repeatPeriod = period;
+    	this.repeatStart = repeat;
+    }
+    
     @Override
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;
