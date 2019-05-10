@@ -17,6 +17,14 @@ public class ScheduleSequenceConstraint implements ScheduleConstraint{
     Period repeatPeriod;
     LocalDate repeatStart;
 
+    ScheduleSequenceConstraint(PersonalSequence shiftSeq, int min, int max, Period period, LocalDate repeat){
+    	this.shiftSequence = shiftSeq;
+    	this.minMatches = min;
+    	this.maxMatches = max;
+    	this.repeatPeriod = period;
+    	this.repeatStart = repeat;
+    }
+    
     @Override
     public int score(List<ShiftAssignment> shiftAssignments) {
 

@@ -26,9 +26,12 @@ public class Shift {
 
     LocalDateTime startTime;
     LocalDateTime endTime;
-    List<String> shiftTypes;
+	List<String> shiftTypes;
     Location location;
-
+    Boolean mandatory;
+    // restrictions??
+    List<Integer> RoleID;
+    
     public LocalDateTime getStartTime() {
         return startTime;
     }
@@ -45,10 +48,12 @@ public class Shift {
         return location;
     }
 
-    public Shift(LocalDateTime startTime, LocalDateTime endTime, List<String> shiftTypes, Location location) {
+    public Shift(LocalDateTime startTime, LocalDateTime endTime, List<String> shiftTypes, Location location, Boolean mandatory, List<Integer> RoleID) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.shiftTypes = shiftTypes;
         this.location = location;
+        this.mandatory = mandatory; 
+        this.RoleID = RoleID;
     }
 }

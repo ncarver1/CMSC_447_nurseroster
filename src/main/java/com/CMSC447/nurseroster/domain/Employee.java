@@ -24,10 +24,24 @@ import java.util.Map;
 public class Employee  {
 
 
-    //TODO constructor
+    //constructor
+	Employee(int id, List<Role> Roles, String Name, List<String> eAddr, List<DatePreference> Days, List<ShiftPattern> template){
+		this.EmployeeID = id;
+		this.roles = Roles;
+		this.name = Name;
+		this.email = eAddr;
+		this.preferredDays = Days;
+		this.EmployeeShiftTemplate = template;
+	}
 
     List<PersonalConstraint> constraints;
     List<Role> roles;
+    int EmployeeID;
+    String name;
+    List<String> email; 
+    List<DatePreference> preferredDays;
+    List<ShiftPattern> EmployeeShiftTemplate; 
+    
 
     public HardSoftScore score(List<Shift> shifts){
         int softScore = 0;

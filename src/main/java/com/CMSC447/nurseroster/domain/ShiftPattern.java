@@ -20,7 +20,19 @@ public class ShiftPattern {
     List<Pair<Float,Float>> lengthRanges;
     List<Location> allowedLocations;
 
-
+    // constructor
+    ShiftPattern(List<Enum> allowed, List<String> required, List<String> banned, List<Pair<LocalTime, LocalTime>> startTime, List<Pair<LocalTime, LocalTime>> endTime,
+    		List<Pair<LocalDate, LocalDate>> startDate, List<Pair<LocalDate, LocalDate>> endDate, List<Pair<Float,Float>> length, List<Location> allowedLoc){
+    	this.allowedDaysOfWeek = allowed;
+    	this.requiredTypes = required;
+    	this.bannedTypes = banned;
+    	this.startTimeRanges = startTime;
+    	this.endTimeRanges = endTime;
+    	this.startDateRanges = startDate;
+    	this.endDateRanges = endDate;
+    	this.lengthRanges = length;
+    	this.allowedLocations = allowedLoc; 
+    }
 
     /*
     * Checks to see if shift follows this Pattern

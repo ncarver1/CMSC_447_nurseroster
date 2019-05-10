@@ -14,8 +14,16 @@ public class DatePreference implements Preference {
 
     LocalDate startDate;
     LocalDate endDate;
-
-
+    Boolean isPosPref; 
+    String location;
+    
+    DatePreference(Boolean pref, LocalDate start, LocalDate end, String loc){
+    	this.isPosPref = pref;
+    	this.startDate = start;
+    	this.endDate = end;
+    	this.location = loc; 
+    }
+    
     @Override
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;

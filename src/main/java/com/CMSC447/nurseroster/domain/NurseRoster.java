@@ -40,8 +40,11 @@ public class NurseRoster {
 
     private List<ShiftAssignment> shiftAssignments;
 
-
-
+    // constructor
+    NurseRoster(List<ShiftAssignment> shftAssign, List<ScheduleConstraint> schCon){
+    	this.scheduleConstraints = schCon;
+    	this.shiftAssignments = shftAssign;
+    }
 
     @PlanningScore
     public HardSoftScore getScore() {

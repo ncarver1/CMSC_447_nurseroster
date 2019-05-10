@@ -11,7 +11,14 @@ import java.util.List;
 public class DayOfWeekPreference implements Preference {
 
     int DayOfWeek;
+    String location;
+    Boolean isPositivePref; 
 
+    DayOfWeekPreference(int Day, String loc, Boolean isPos){
+    	this.DayOfWeek = Day;
+    	this.location = loc;
+    	this.isPositivePref = isPos;
+    }
 
     @Override
     public int score(List<Shift> shiftAssignments, Employee employee) {

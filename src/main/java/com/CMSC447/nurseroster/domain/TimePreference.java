@@ -15,6 +15,11 @@ public class TimePreference implements Preference {
     LocalTime startTime;
     LocalTime endTime;
 
+    TimePreference(LocalTime start, LocalTime end){
+    	this.startTime = start;
+    	this.endTime = end;
+    }
+    
     @Override
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;
