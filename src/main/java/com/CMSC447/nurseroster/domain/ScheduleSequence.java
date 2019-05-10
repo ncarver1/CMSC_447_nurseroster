@@ -7,7 +7,7 @@ public class ScheduleSequence extends Sequence{
     List<Employee> employeeRequirements;
     List<Role> rolePattern;
 
-    ScheduleSequence(List<Integer> empPattern, List<Employee> reqs, List<Role> rolePattern){
+    public ScheduleSequence(List<Integer> empPattern, List<Employee> reqs, List<Role> rolePattern){
     	this.employeePattern = empPattern; 
     	this.employeeRequirements = reqs;
     	this.rolePattern  = rolePattern;
