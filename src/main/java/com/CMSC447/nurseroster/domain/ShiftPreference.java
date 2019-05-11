@@ -11,8 +11,8 @@ import java.util.List;
 
 public class ShiftPreference implements Preference {
 
-    LocalDateTime startTime;
-    LocalDateTime endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
     ShiftPreference(LocalDateTime start, LocalDateTime end){
     	this.startTime = start;
@@ -23,7 +23,7 @@ public class ShiftPreference implements Preference {
     public int score(List<Shift> shiftAssignments, Employee employee) {
         return 0;
     }
-    
+
 
 
 }

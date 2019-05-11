@@ -27,8 +27,10 @@ import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProp
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.javatuples.Pair;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @PlanningSolution
 public class NurseRoster {
@@ -39,11 +41,14 @@ public class NurseRoster {
     private HardSoftScore score;
 
     private List<ShiftAssignment> shiftAssignments;
+    private List<LocalDateTime> shiftDates = new LinkedList<LocalDateTime>();
+    private List<Employee> employees;
 
     // constructor
     NurseRoster(List<ShiftAssignment> shftAssign, List<ScheduleConstraint> schCon){
     	this.scheduleConstraints = schCon;
     	this.shiftAssignments = shftAssign;
+    	reformatAssignments();
     }
 
     @PlanningScore
@@ -62,23 +67,30 @@ public class NurseRoster {
         return score;
     }
 
+
     private List<Pair<Employee,List<Shift>>> reformatAssignments(){
         List<Pair<Employee,List<Shift>>> reformat = new LinkedList<Pair<Employee,List<Shift>>>();
         List<Employee> employees = new LinkedList<Employee>();
+        List<LocalDateTime> shiftDates = new LinkedList<LocalDateTime>();
+        shiftAssignments.sort(new CompareByStartDate());
         for(ShiftAssignment assignment: shiftAssignments){
             if(!employees.contains(assignment.employee)){
                 employees.add(assignment.employee);
                 List<Shift> shifts = new LinkedList<Shift>();
                 shifts.add(assignment.shift);
+                shiftDates.add(assignment.shift.startTime);
                 reformat.add(new Pair<>(assignment.employee, shifts));
             }else{
                 for(Pair<Employee,List<Shift>> item : reformat){
                     if(item.getValue(0).equals(assignment.employee)){
                         ((List)item.getValue(1)).add(assignment.shift);
+                        shiftDates.add(assignment.shift.startTime);
                     }
                 }
             }
         }
+        this.shiftDates = shiftDates;
+        this.employees = employees;
         return reformat;
     }
 
@@ -87,7 +99,18 @@ public class NurseRoster {
         return shiftAssignments;
     }
 
-    // ************************************************************************
+    public List<Employee> getEmployees() {
+        reformatAssignments();
+        return employees;
+    }
+
+    public List<LocalDateTime> getShiftDateList() {
+        reformatAssignments();
+        return shiftDates;
+    }
+
+
+// ************************************************************************
     // Complex methods
     // ************************************************************************
 

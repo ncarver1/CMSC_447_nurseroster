@@ -20,6 +20,8 @@ package com.CMSC447.nurseroster.domain;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
+import java.util.Comparator;
+
 @PlanningEntity
 public class ShiftAssignment{
 
@@ -46,10 +48,13 @@ public class ShiftAssignment{
         this.shift = shift;
     }
 
-    public
 
     Employee employee;
 
     Shift shift;
 
+
+    public int getShiftDateDayIndex() {
+        return shift.startTime.getDayOfMonth();
+    }
 }
