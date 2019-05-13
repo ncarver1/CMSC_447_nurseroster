@@ -20,7 +20,7 @@ public class ShiftPreference implements Preference {
     }
     
     @Override
-    public int score(List<Shift> shiftAssignments, Employee employee) {
+    public int score(List<Shift> shiftAssignments, Employee employee){
         return 0;
     }
 
